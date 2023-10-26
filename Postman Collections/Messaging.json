@@ -1,0 +1,456 @@
+{
+	"info": {
+		"_postman_id": "04a85346-72e2-488d-bebd-e62411f52b9f",
+		"name": "Messaging",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Individual Message Thread",
+			"id": "cdc96c37-926c-42d4-9b3e-f34a591daf8f",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"value": "{{host}}"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US;q=1.0"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+					}
+				],
+				"url": {
+					"raw": "https://{{url}}/v1.0/messaging/threads/4E8C2DA53E14C349DE22C9E7B9239F?token={{token}}",
+					"protocol": "https",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1.0",
+						"messaging",
+						"threads",
+						"4E8C2DA53E14C349DE22C9E7B9239F"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "{{token}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Room Description/ Name",
+			"id": "2e4cf92c-a2c5-407b-a1fd-2c517fdf30c5",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Host",
+						"value": "i662453.cytracom.net"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US;q=1.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"room_private\": true,\n    \"room_archived\": false,\n    \"room_desc\": \"Hey \\n\",\n    \"room_name\": \"Hggfg\"\n}"
+				},
+				"url": {
+					"raw": "https://i662453.cytracom.net/v1.0/messaging/rooms/4E8C2DA53E14C349DE22C9E7B9239F?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+					"protocol": "https",
+					"host": [
+						"i662453",
+						"cytracom",
+						"net"
+					],
+					"path": [
+						"v1.0",
+						"messaging",
+						"rooms",
+						"4E8C2DA53E14C349DE22C9E7B9239F"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New Direct Conversation",
+			"id": "3678879e-7719-4d3f-9f5b-345545ade019",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": "i662453.cytracom.net"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US;q=1.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"to\":[\"dcarroll+test_C2@cytracom.com\"]}"
+				},
+				"url": {
+					"raw": "https://i662453.cytracom.net/v1.0/messaging/threads/init-thread?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+					"protocol": "https",
+					"host": [
+						"i662453",
+						"cytracom",
+						"net"
+					],
+					"path": [
+						"v1.0",
+						"messaging",
+						"threads",
+						"init-thread"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create New SMS Conversation",
+			"id": "735ebf50-4313-4035-939d-a744c132aa7d",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": "i662453.cytracom.net"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US;q=1.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"from\":\"+17602904509\",\"to\":[\"+919416837416\",\"+16478254162\"]}"
+				},
+				"url": {
+					"raw": "https://i662453.cytracom.net/v1.0/messaging/threads/init-thread?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+					"protocol": "https",
+					"host": [
+						"i662453",
+						"cytracom",
+						"net"
+					],
+					"path": [
+						"v1.0",
+						"messaging",
+						"threads",
+						"init-thread"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send Message",
+			"id": "fe68e1e7-ead9-41e4-8795-316056c2b849",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Host",
+						"value": "i662453.cytracom.net"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US;q=1.0"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"text\":\"Hello\",\"mentions\":[],\"is_internal_message\":true,\"thread_id\":\"8DF64240E27E4BB3F93E2CC586457E8AB183EC53\"}"
+				},
+				"url": {
+					"raw": "https://i662453.cytracom.net/v1.0/messaging/send-message?mobile_callback_id=66C90066-F08A-48F4-A534-9FD6537CADB9&token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+					"protocol": "https",
+					"host": [
+						"i662453",
+						"cytracom",
+						"net"
+					],
+					"path": [
+						"v1.0",
+						"messaging",
+						"send-message"
+					],
+					"query": [
+						{
+							"key": "mobile_callback_id",
+							"value": "66C90066-F08A-48F4-A534-9FD6537CADB9"
+						},
+						{
+							"key": "token",
+							"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get That Thread",
+			"id": "5cf7826b-3462-4b14-bdc6-f479897e30ba",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"value": "i662453.cytracom.net"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US;q=1.0"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+					}
+				],
+				"url": {
+					"raw": "https://i662453.cytracom.net/v1.0/messaging/messages/B182563CA2F4C788FEAC5B2A79AD21?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+					"protocol": "https",
+					"host": [
+						"i662453",
+						"cytracom",
+						"net"
+					],
+					"path": [
+						"v1.0",
+						"messaging",
+						"messages",
+						"B182563CA2F4C788FEAC5B2A79AD21"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Direct Threads",
+			"id": "daeaeb67-128f-4cb4-8f48-31adce0b3c06",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"value": "i662453.cytracom.net"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US;q=1.0"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+					}
+				],
+				"url": {
+					"raw": "https://i662453.cytracom.net/v1.0/messaging/threads?limit=100&token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+					"protocol": "https",
+					"host": [
+						"i662453",
+						"cytracom",
+						"net"
+					],
+					"path": [
+						"v1.0",
+						"messaging",
+						"threads"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "token",
+							"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Shared Threads",
+			"id": "82af4db9-1e22-471c-a4f4-24cf06917f29",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Host",
+						"value": "i662453.cytracom.net"
+					},
+					{
+						"key": "Accept-Language",
+						"value": "en-US;q=1.0"
+					},
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "User-Agent",
+						"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+					}
+				],
+				"url": {
+					"raw": "https://i662453.cytracom.net/v1.0/messaging/threads?thread_type=sms_shared&from_number=%2B17602904509&limit=100&token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+					"protocol": "https",
+					"host": [
+						"i662453",
+						"cytracom",
+						"net"
+					],
+					"path": [
+						"v1.0",
+						"messaging",
+						"threads"
+					],
+					"query": [
+						{
+							"key": "thread_type",
+							"value": "sms_shared"
+						},
+						{
+							"key": "from_number",
+							"value": "%2B17602904509"
+						},
+						{
+							"key": "limit",
+							"value": "100"
+						},
+						{
+							"key": "token",
+							"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
