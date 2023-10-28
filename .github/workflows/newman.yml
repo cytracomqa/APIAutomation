@@ -24,7 +24,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-        name: Create dir
+      - name: Create dir
         run: |
           mkdir SampleArtifact
 
@@ -43,4 +43,12 @@ jobs:
       # Runs Collection
       - name: Run Collection
         run: |
-          newman run Postman collections/
+          newman run "Postman collections/Cytra_Login.json" 
+          -r htmlextra --reporter-htmlextra-export SampleArtifact/report.html
+
+      # Publish Report
+      - name: Publish Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: Reports
+          path: SampleArtifact
