@@ -43,7 +43,7 @@ jobs:
       # Runs Collection
       - name: Run Collection
         run: |
-          newman run "Postman collections/Cytra_Login.json" 
+          newman run "Postman Collections/Cytra_Login.json" 
           -r htmlextra --reporter-htmlextra-export SampleArtifact/report.html
 
       # Publish Report
