@@ -44,4 +44,3 @@ jobs:
       - name: Run Collection
         run: |
           newman run Postman collections/
-          echo test, and deploy your project.
