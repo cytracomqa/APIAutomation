@@ -1,0 +1,1565 @@
+{
+	"info": {
+		"_postman_id": "5d2df6b5-83a8-4a66-9380-76069a55ea33",
+		"name": "Cytracom Mobile API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Cytra Login",
+			"item": [
+				{
+					"name": "Auth Signin",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0a65c8fe-ffa7-42c5-9da1-a67b451b4f8d",
+								"exec": [
+									"pm.environment.set(\"url\", \"i662453.cytracom.net\");",
+									"pm.environment.set(\"host\", \"i662453.cytracom.net\");",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "ac5931c8-ef1f-4b04-a0cc-20b5535cbac0",
+								"exec": [
+									"//Testt",
+									"var jsonData = pm.response.json();",
+									"",
+									"var encoded = encodeURIComponent(jsonData.app_token);",
+									"pm.environment.set(\"token\", encoded);",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"    pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "3f02f907-27be-42e2-a046-e9e9077152df",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"passwd\":\"Password1.\",\"login_id\":\"pdoshi+test@cytracom.com\"}\n\n//Test\n///////\n\n"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/data/plugin/auth/662453?with_sip_creds=true",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"data",
+								"plugin",
+								"auth",
+								"662453"
+							],
+							"query": [
+								{
+									"key": "with_sip_creds",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get DID info",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "108fbb89-6e53-4ccf-b2a8-7650b17388f9",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "f22d1eec-54dc-4a49-85c7-a2d98547d199",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "e1d5e93c-981b-4bfc-b67b-ba96cb555ac7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1.0/messaging/get-dids?denote_shared&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"get-dids"
+							],
+							"query": [
+								{
+									"key": "denote_shared",
+									"value": null
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Pendo Users token",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46a6fa17-4786-47a6-82a8-3c165e348678",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "cec7eb60-4ecb-401e-b744-b8d4cb67ef86",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1.0/pendo/users/web-users/pendo?token={{token}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1.0",
+								"pendo",
+								"users",
+								"web-users",
+								"pendo"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register User Device",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "15190af5-c6e7-4fcb-bd90-f36b994df74c",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "c8e17e98-b58d-4933-8eb2-d1f654d0575d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"extension_number\":\"131\",\"company_did\":\"\",\"device_type\":\"apple-F049D084-CE04-496C-9B0F-69E77D721C96-Cytracom+Mobile\",\"device_token\":\"4c1ddd5fb516906cf7fcf8cb2be7f852af55c34f46a400a29eab5509df78952d\",\"sip_username\":\"sip131_dbtozqz\",\"email\":\"pdoshi+test@cytracom.com\",\"timestamp\":1695951850}"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/mobile/register-user-device?token={{token}}",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"mobile",
+								"register-user-device"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Messaging threads",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1974268b-0623-4897-b58b-adbaafa4a16a",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "301fa31a-68d7-4848-b9c9-4b9707236310",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1.0/messaging/threads?limit=100&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"threads"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Call Detail Records",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5dfc864b-3a0f-4236-9519-b1e02b409182",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "cde0274e-9828-44fd-a08c-c3cc5e0aa424",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v2.0/data/services/reports/call-detail-records?count=100&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v2.0",
+								"data",
+								"services",
+								"reports",
+								"call-detail-records"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "100"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Voicemails",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ad621812-fbcf-4562-9488-38ce4a64f67c",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "a0f1ae6d-e3ed-4dd9-9314-5b384e91e792",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1.0/vmm/voicemail?take=100&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1.0",
+								"vmm",
+								"voicemail"
+							],
+							"query": [
+								{
+									"key": "take",
+									"value": "100"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Extensions List",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1fbe5ddb-60c7-4a1b-baea-700cda7ecb14",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "334649c4-e038-4073-87ff-f2b393b6268f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1.0/data/api/services/extensions?take=500&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1.0",
+								"data",
+								"api",
+								"services",
+								"extensions"
+							],
+							"query": [
+								{
+									"key": "take",
+									"value": "500"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Messaging Threads Shared Messages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e75ee03-a0d4-406e-ae44-f1b4f9636fb0",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "5965d432-82df-4795-b0f9-09b0b73ab353",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1.0/messaging/threads?thread_type=sms_shared&from_number=%2B17602904509&limit=100&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"threads"
+							],
+							"query": [
+								{
+									"key": "thread_type",
+									"value": "sms_shared"
+								},
+								{
+									"key": "from_number",
+									"value": "%2B17602904509"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DataDog Session started No",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "06408b4d-1319-4e86-a364-6641ddd041f4",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 202\", function () {",
+									"        pm.response.to.have.status(202);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "930a7fe4-b1dc-46ba-895e-0bc8b4b488a3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "browser-intake-datadoghq.com"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "dd-evp-origin",
+								"value": "ios"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "dd-api-key",
+								"value": "pub34b44894ab9f3754a9756c9172a097c1"
+							},
+							{
+								"key": "dd-request-id",
+								"value": "7A3DEBC2-E4C4-45EA-8CD2-52BF7BB67DDE"
+							},
+							{
+								"key": "user-agent",
+								"value": "Cytracom Mobile/23.25 CFNetwork (iPhone; iOS/16.6)"
+							},
+							{
+								"key": "dd-evp-origin-version",
+								"value": "1.20.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"id\":\"29a09977-e7f9-4375-920b-1d19617bc3e2\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":1404742956,\"type\":\"application_start\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951806000,\"type\":\"action\",\"view\":{\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"name\":\"ApplicationLaunch\",\"url\":\"com/datadog/application-launch/view\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":1,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951806000,\"view\":{\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"com/datadog/application-launch/view\",\"is_active\":true,\"action\":{\"count\":1},\"frustration\":{\"count\":0},\"time_spent\":1404742956,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"ApplicationLaunch\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"long_task\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807393,\"view\":{\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"name\":\"ApplicationLaunch\",\"url\":\"com/datadog/application-launch/view\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"long_task\":{\"duration\":153438926,\"is_frozen_frame\":false}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"long_task\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807547,\"view\":{\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"name\":\"ApplicationLaunch\",\"url\":\"com/datadog/application-launch/view\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"long_task\":{\"duration\":103472948,\"is_frozen_frame\":false}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":1,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807760,\"view\":{\"id\":\"9bf28527-ff8a-476d-a130-2574ebd91227\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.CytraRootViewController\",\"is_active\":true,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"time_spent\":1,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.CytraRootViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":2,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807760,\"view\":{\"id\":\"9bf28527-ff8a-476d-a130-2574ebd91227\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.CytraRootViewController\",\"is_active\":false,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"time_spent\":746012,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.CytraRootViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":1,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807761,\"view\":{\"id\":\"ce1dc229-d2ec-423e-8e37-f6737ba01b52\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.CytraTabbarController\",\"is_active\":true,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"time_spent\":1,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.CytraTabbarController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":2,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807761,\"view\":{\"id\":\"ce1dc229-d2ec-423e-8e37-f6737ba01b52\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.CytraTabbarController\",\"is_active\":false,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"time_spent\":586987,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.CytraTabbarController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":1,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807762,\"view\":{\"id\":\"972b2d5c-77c9-41f5-8989-f57dc81263f7\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.DialPadCytraNavigationController\",\"is_active\":true,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"memory_max\":85671936,\"time_spent\":1,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"cpu_ticks_count\":0,\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.DialPadCytraNavigationController\",\"memory_average\":85671936},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":2,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807762,\"view\":{\"id\":\"972b2d5c-77c9-41f5-8989-f57dc81263f7\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.DialPadCytraNavigationController\",\"is_active\":false,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"memory_max\":85671936,\"time_spent\":87976,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"cpu_ticks_count\":0,\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.DialPadCytraNavigationController\",\"memory_average\":85671936},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":1,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807762,\"view\":{\"id\":\"8b42b76e-c296-47dc-b51e-e2244f6e144b\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.DialPadViewController\",\"is_active\":true,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"time_spent\":1,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"resource\":{\"id\":\"3f092606-f695-4072-bb81-c10f739adb03\",\"provider\":{\"type\":\"first party\",\"domain\":\"i662453.cytracom.net\"},\"url\":\"https://i662453.cytracom.net/v1.0/messaging/get-dids?denote_shared&token=bezDvMxva/SieBNm9%2BBVn4aFsiCGqFHnUEqPNMmNC5U=\",\"first_byte\":{\"start\":484330058,\"duration\":117270947},\"connect\":{\"start\":171985030,\"duration\":312000036},\"dns\":{\"start\":171985030,\"duration\":0},\"size\":189,\"download\":{\"start\":601601005,\"duration\":17961025},\"ssl\":{\"start\":258985043,\"duration\":225000024},\"type\":\"native\",\"duration\":619904995,\"status_code\":200,\"method\":\"GET\"},\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"resource\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807410,\"view\":{\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"name\":\"ApplicationLaunch\",\"url\":\"com/datadog/application-launch/view\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"resource\":{\"id\":\"87250b5e-0e38-46d6-b18f-4698e571eab2\",\"provider\":{\"type\":\"first party\",\"domain\":\"i662453.cytracom.net\"},\"url\":\"https://i662453.cytracom.net/v1.0/vmm/voicemail?take=100&token=bezDvMxva/SieBNm9%2BBVn4aFsiCGqFHnUEqPNMmNC5U=\",\"first_byte\":{\"start\":488273025,\"duration\":175914049},\"connect\":{\"start\":176003098,\"duration\":312999964},\"dns\":{\"start\":175003052,\"duration\":0},\"size\":0,\"ssl\":{\"start\":275003076,\"duration\":213999987},\"type\":\"native\",\"duration\":664687037,\"status_code\":200,\"method\":\"GET\"},\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"resource\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807406,\"view\":{\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"name\":\"ApplicationLaunch\",\"url\":\"com/datadog/application-launch/view\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"resource\":{\"id\":\"6d9e9d62-eb07-4a66-a922-ad0b6fabb083\",\"provider\":{\"type\":\"first party\",\"domain\":\"i662453.cytracom.net\"},\"url\":\"https://i662453.cytracom.net/v2.0/data/services/reports/call-detail-records?count=100&token=bezDvMxva/SieBNm9%2BBVn4aFsiCGqFHnUEqPNMmNC5U=\",\"first_byte\":{\"start\":489324093,\"duration\":175613999},\"connect\":{\"start\":175317049,\"duration\":315000057},\"dns\":{\"start\":173317075,\"duration\":0},\"size\":0,\"ssl\":{\"start\":276317000,\"duration\":214000106},\"type\":\"native\",\"duration\":665557027,\"status_code\":200,\"method\":\"GET\"},\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"resource\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807405,\"view\":{\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"name\":\"ApplicationLaunch\",\"url\":\"com/datadog/application-launch/view\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"resource\":{\"id\":\"a9a6106c-11b9-4fb8-9224-5b03034ff6db\",\"provider\":{\"type\":\"first party\",\"domain\":\"i662453.cytracom.net\"},\"url\":\"https://i662453.cytracom.net/v1.0/mobile/register-user-device?token=bezDvMxva/SieBNm9%2BBVn4aFsiCGqFHnUEqPNMmNC5U=\",\"first_byte\":{\"start\":319896936,\"duration\":103638053},\"connect\":{\"start\":6304026,\"duration\":315000057},\"dns\":{\"start\":5303979,\"duration\":0},\"size\":37,\"download\":{\"start\":423534989,\"duration\":5316973},\"ssl\":{\"start\":119304061,\"duration\":202000022},\"type\":\"native\",\"duration\":429014921,\"status_code\":200,\"method\":\"POST\"},\"version\":\"23.25\",\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"resource\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807760,\"view\":{\"id\":\"8b42b76e-c296-47dc-b51e-e2244f6e144b\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"resource\":{\"id\":\"51c41405-6067-466a-84e8-5b1b4f772f3e\",\"provider\":{\"type\":\"first party\",\"domain\":\"i662453.cytracom.net\"},\"url\":\"https://i662453.cytracom.net/v1.0/pendo/users/web-users/pendo?token=bezDvMxva/SieBNm9%2BBVn4aFsiCGqFHnUEqPNMmNC5U=\",\"first_byte\":{\"start\":490575910,\"duration\":310546041},\"connect\":{\"start\":160489917,\"duration\":330000043},\"dns\":{\"start\":160489917,\"duration\":0},\"size\":0,\"ssl\":{\"start\":269489884,\"duration\":221000075},\"type\":\"native\",\"duration\":801719904,\"status_code\":200,\"method\":\"GET\"},\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"resource\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807423,\"view\":{\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"name\":\"ApplicationLaunch\",\"url\":\"com/datadog/application-launch/view\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"resource\":{\"id\":\"a731a90a-9635-4a6c-b5a6-89d88fe7cd33\",\"provider\":{\"type\":\"first party\",\"domain\":\"i662453.cytracom.net\"},\"url\":\"https://i662453.cytracom.net/v1.0/data/api/services/extensions?take=500&token=bezDvMxva/SieBNm9%2BBVn4aFsiCGqFHnUEqPNMmNC5U=\",\"first_byte\":{\"start\":384796023,\"duration\":716619968},\"connect\":{\"start\":98531961,\"duration\":291000009},\"dns\":{\"start\":93531966,\"duration\":0},\"size\":24582,\"download\":{\"start\":1101415992,\"duration\":72347999},\"ssl\":{\"start\":177531958,\"duration\":212000012},\"type\":\"native\",\"duration\":1174082041,\"status_code\":200,\"method\":\"GET\"},\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"resource\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951807191,\"view\":{\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"name\":\"ApplicationLaunch\",\"url\":\"com/datadog/application-launch/view\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":2,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951806000,\"view\":{\"cpu_ticks_per_second\":46.889355912552141,\"frozen_frame\":{\"count\":0},\"url\":\"com/datadog/application-launch/view\",\"long_task\":{\"count\":2},\"memory_average\":84549632,\"action\":{\"count\":1},\"custom_timings\":{},\"frustration\":{\"count\":0},\"name\":\"ApplicationLaunch\",\"id\":\"ad9e28f4-e5aa-4eaf-a5df-c3dc6fed6df6\",\"is_active\":false,\"cpu_ticks_count\":111,\"refresh_rate_min\":34.413832063955944,\"error\":{\"count\":0},\"memory_max\":88801280,\"time_spent\":2367275000,\"is_slow_rendered\":false,\"resource\":{\"count\":5},\"refresh_rate_average\":59.360930807516034,\"crash\":{\"count\":0}},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"resource\":{\"method\":\"GET\",\"first_byte\":{\"start\":916958,\"duration\":192404985},\"provider\":{\"type\":\"first party\",\"domain\":\"i662453.cytracom.net\"},\"id\":\"cb9dbb60-cdca-43c6-b8b0-bc9fc29a8b71\",\"download\":{\"start\":193321943,\"duration\":226194024},\"status_code\":200,\"size\":177660,\"duration\":419700027,\"type\":\"native\",\"url\":\"https://i662453.cytracom.net/v1.0/messaging/threads?limit=100&token=bezDvMxva/SieBNm9%2BBVn4aFsiCGqFHnUEqPNMmNC5U=\"},\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"resource\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951808100,\"view\":{\"id\":\"8b42b76e-c296-47dc-b51e-e2244f6e144b\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"resource\":{\"method\":\"GET\",\"first_byte\":{\"start\":907063,\"duration\":189927936},\"provider\":{\"type\":\"first party\",\"domain\":\"i662453.cytracom.net\"},\"id\":\"0fbcfc71-c9b5-4346-ab46-a5ac93b56066\",\"download\":{\"start\":190834999,\"duration\":288694978},\"status_code\":200,\"size\":370555,\"duration\":479874969,\"type\":\"native\",\"url\":\"https://i662453.cytracom.net/v1.0/messaging/threads?thread_type=sms_shared&from_number=%2B17602904509&limit=100&token=bezDvMxva/SieBNm9%2BBVn4aFsiCGqFHnUEqPNMmNC5U=\"},\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"a83400fb-a653-45d3-bf05-1d02fe1931b9\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"resource\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695951808526,\"view\":{\"id\":\"8b42b76e-c296-47dc-b51e-e2244f6e144b\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}"
+						},
+						"url": {
+							"raw": "https://browser-intake-datadoghq.com/api/v2/rum?ddsource=ios&ddtags=service:com.cytracom.Cytracom-Mobile,version:23.25,sdk_version:1.20.0,env:production",
+							"protocol": "https",
+							"host": [
+								"browser-intake-datadoghq",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"rum"
+							],
+							"query": [
+								{
+									"key": "ddsource",
+									"value": "ios"
+								},
+								{
+									"key": "ddtags",
+									"value": "service:com.cytracom.Cytracom-Mobile,version:23.25,sdk_version:1.20.0,env:production"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DataDog Connection Kept alive",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7f1f8549-6538-4f9d-b56b-7c90c1302642",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 202\", function () {",
+									"        pm.response.to.have.status(202);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "3d1e3b40-57b7-4cd0-87d2-3a3ef70559e7",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "browser-intake-datadoghq.com"
+							},
+							{
+								"key": "content-type",
+								"value": "text/plain;charset=UTF-8"
+							},
+							{
+								"key": "accept",
+								"value": "*/*"
+							},
+							{
+								"key": "dd-evp-origin",
+								"value": "ios"
+							},
+							{
+								"key": "accept-language",
+								"value": "en-US,en;q=0.9"
+							},
+							{
+								"key": "dd-api-key",
+								"value": "pub34b44894ab9f3754a9756c9172a097c1"
+							},
+							{
+								"key": "dd-request-id",
+								"value": "51D57403-37A9-4D20-ACB5-B9B92632FA74"
+							},
+							{
+								"key": "user-agent",
+								"value": "Cytracom Mobile/23.25 CFNetwork (iPhone; iOS/16.6)"
+							},
+							{
+								"key": "dd-evp-origin-version",
+								"value": "1.20.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"UITabBarButton\"},\"id\":\"37211a0a-770a-40e6-8a19-32cbe75bee80\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":61941981,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952509530,\"type\":\"action\",\"view\":{\"id\":\"faa75163-60f2-49e6-aaf0-2b101130eb2e\",\"name\":\"Cytracom_Mobile.CallHistoryViewController\",\"url\":\"Cytracom_Mobile.CallHistoryViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":2,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952490650,\"view\":{\"cpu_ticks_per_second\":73.435788733650668,\"frozen_frame\":{\"count\":0},\"url\":\"Cytracom_Mobile.CallHistoryViewController\",\"long_task\":{\"count\":0},\"memory_average\":126373241.26315789,\"action\":{\"count\":1},\"custom_timings\":{},\"frustration\":{\"count\":0},\"name\":\"Cytracom_Mobile.CallHistoryViewController\",\"id\":\"faa75163-60f2-49e6-aaf0-2b101130eb2e\",\"is_active\":false,\"cpu_ticks_count\":1391,\"refresh_rate_min\":60.001350028431553,\"error\":{\"count\":0},\"memory_max\":126844928,\"time_spent\":18941717982,\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"refresh_rate_average\":60.00135003037439,\"crash\":{\"count\":0}},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":1,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952509592,\"view\":{\"id\":\"c1f4346e-fac5-4fde-8623-7722c0761999\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.CytraTabbarController\",\"is_active\":true,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"time_spent\":1,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.CytraTabbarController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":2,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952509592,\"view\":{\"id\":\"c1f4346e-fac5-4fde-8623-7722c0761999\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.CytraTabbarController\",\"is_active\":false,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"time_spent\":542998,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.CytraTabbarController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":1,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952509593,\"view\":{\"id\":\"ccdb7e5a-1bfe-4e7a-b29d-7e02ba4b6896\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.DialPadCytraNavigationController\",\"is_active\":true,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"time_spent\":1,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.DialPadCytraNavigationController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":2,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952509593,\"view\":{\"id\":\"ccdb7e5a-1bfe-4e7a-b29d-7e02ba4b6896\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.DialPadCytraNavigationController\",\"is_active\":false,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"memory_max\":125730816,\"time_spent\":153065,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"cpu_ticks_count\":0,\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.DialPadCytraNavigationController\",\"memory_average\":125730816},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\",\"is_active\":true},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"view\",\"_dd\":{\"session\":{\"plan\":1},\"document_version\":1,\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952509593,\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"crash\":{\"count\":0},\"is_slow_rendered\":false,\"resource\":{\"count\":0},\"error\":{\"count\":0},\"url\":\"Cytracom_Mobile.DialPadViewController\",\"is_active\":true,\"action\":{\"count\":0},\"frustration\":{\"count\":0},\"time_spent\":1,\"frozen_frame\":{\"count\":0},\"custom_timings\":{},\"long_task\":{\"count\":0},\"name\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"},\"feature_flags\":{}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"b1afada1-71d5-4102-9e1e-711499c7adb3\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952511197,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"3c057908-dbf1-4423-9814-0336e2dfaf11\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952511456,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"945d554b-c8ab-48cf-9c57-b2b0cde303dd\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952512038,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"dc92c36d-4a89-4345-9c0f-aae88c7cc0f7\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952512356,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"15f058d5-29da-4d1e-85ca-4f1ad5943e6d\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952512572,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"224db0be-f558-47d3-b031-1fdb5e7b55f3\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952512846,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"93f9ac86-29ec-45dc-9992-dd459fc38aff\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952513272,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"ed83a089-4830-4a83-a724-41a51535ed6f\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952513523,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"ff85d510-9661-4ca5-95ee-7ef826eadf05\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952513830,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"action\":{\"target\":{\"name\":\"Cytracom_Mobile.DigitButton\"},\"id\":\"0286f793-53e5-4c39-8d8f-748e78c93ba9\",\"resource\":{\"count\":0},\"long_task\":{\"count\":0},\"crash\":{\"count\":0},\"loading_time\":100000024,\"type\":\"tap\",\"error\":{\"count\":0}},\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952514089,\"type\":\"action\",\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}\n{\"resource\":{\"method\":\"GET\",\"first_byte\":{\"start\":5133986,\"duration\":128332973},\"provider\":{\"type\":\"first party\",\"domain\":\"i662453.cytracom.net\"},\"id\":\"bc75df3a-487c-49a7-b187-d598ff75d8ad\",\"download\":{\"start\":133466959,\"duration\":142618060},\"status_code\":200,\"size\":70380,\"duration\":276911974,\"type\":\"native\",\"url\":\"https://i662453.cytracom.net/v2.0/data/services/reports/call-detail-records?count=100&token=XYQzjGaDqUQt0BEPSdpHXYBl9Wyq3ycBtLg5ipthM1A=\"},\"version\":\"23.25\",\"usr\":{\"email\":\"\",\"id\":\"\",\"name\":\"\"},\"context\":{},\"session\":{\"id\":\"96cc2a4f-54bd-4bc2-be0e-6c9269606444\",\"type\":\"user\"},\"application\":{\"id\":\"b308bde4-aa2c-4037-a9d4-1ceed8f0b1fe\"},\"source\":\"ios\",\"os\":{\"name\":\"iOS\",\"version\":\"16.6\",\"version_major\":\"16\"},\"type\":\"resource\",\"_dd\":{\"session\":{\"plan\":1},\"format_version\":2},\"connectivity\":{\"status\":\"connected\",\"interfaces\":[\"wifi\",\"cellular\"],\"cellular\":{\"carrier_name\":\"T-Mobile\",\"technology\":\"LTE\"}},\"service\":\"com.cytracom.Cytracom-Mobile\",\"date\":1695952514887,\"view\":{\"id\":\"c279be50-1d63-4583-9e25-6c5e04d17dd3\",\"name\":\"Cytracom_Mobile.DialPadViewController\",\"url\":\"Cytracom_Mobile.DialPadViewController\"},\"device\":{\"brand\":\"Apple\",\"architecture\":\"arm64e\",\"model\":\"iPhone12,1\",\"name\":\"iPhone\",\"type\":\"mobile\"}}"
+						},
+						"url": {
+							"raw": "https://browser-intake-datadoghq.com/api/v2/rum?ddsource=ios&ddtags=service:com.cytracom.Cytracom-Mobile,version:23.25,sdk_version:1.20.0,env:production",
+							"protocol": "https",
+							"host": [
+								"browser-intake-datadoghq",
+								"com"
+							],
+							"path": [
+								"api",
+								"v2",
+								"rum"
+							],
+							"query": [
+								{
+									"key": "ddsource",
+									"value": "ios"
+								},
+								{
+									"key": "ddtags",
+									"value": "service:com.cytracom.Cytracom-Mobile,version:23.25,sdk_version:1.20.0,env:production"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "a32cf853-8f58-4f3c-b1a5-e649724cdeeb"
+		},
+		{
+			"name": "Messaging",
+			"item": [
+				{
+					"name": "Individual Message Thread",
+					"id": "cdc96c37-926c-42d4-9b3e-f34a591daf8f",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1.0/messaging/threads/4E8C2DA53E14C349DE22C9E7B9239F?token={{token}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"threads",
+								"4E8C2DA53E14C349DE22C9E7B9239F"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Room Description/ Name",
+					"id": "2e4cf92c-a2c5-407b-a1fd-2c517fdf30c5",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"room_private\": true,\n    \"room_archived\": false,\n    \"room_desc\": \"Hey \\n\",\n    \"room_name\": \"Hggfg\"\n}"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/rooms/4E8C2DA53E14C349DE22C9E7B9239F?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"rooms",
+								"4E8C2DA53E14C349DE22C9E7B9239F"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Direct Conversation",
+					"id": "3678879e-7719-4d3f-9f5b-345545ade019",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"to\":[\"dcarroll+test_C2@cytracom.com\"]}"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads/init-thread?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"threads",
+								"init-thread"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New SMS Conversation",
+					"id": "735ebf50-4313-4035-939d-a744c132aa7d",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"from\":\"+17602904509\",\"to\":[\"+919416837416\",\"+16478254162\"]}"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads/init-thread?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"threads",
+								"init-thread"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Message",
+					"id": "fe68e1e7-ead9-41e4-8795-316056c2b849",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"text\":\"Hello\",\"mentions\":[],\"is_internal_message\":true,\"thread_id\":\"8DF64240E27E4BB3F93E2CC586457E8AB183EC53\"}"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/send-message?mobile_callback_id=66C90066-F08A-48F4-A534-9FD6537CADB9&token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"send-message"
+							],
+							"query": [
+								{
+									"key": "mobile_callback_id",
+									"value": "66C90066-F08A-48F4-A534-9FD6537CADB9"
+								},
+								{
+									"key": "token",
+									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get That Thread",
+					"id": "5cf7826b-3462-4b14-bdc6-f479897e30ba",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/messages/B182563CA2F4C788FEAC5B2A79AD21?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"messages",
+								"B182563CA2F4C788FEAC5B2A79AD21"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Direct Threads",
+					"id": "daeaeb67-128f-4cb4-8f48-31adce0b3c06",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads?limit=100&token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"threads"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "token",
+									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Shared Threads",
+					"id": "82af4db9-1e22-471c-a4f4-24cf06917f29",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads?thread_type=sms_shared&from_number=%2B17602904509&limit=100&token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"threads"
+							],
+							"query": [
+								{
+									"key": "thread_type",
+									"value": "sms_shared"
+								},
+								{
+									"key": "from_number",
+									"value": "%2B17602904509"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "token",
+									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "8a75e717-f687-4fb0-bc59-89824eb7d750"
+		}
+	]
+}
