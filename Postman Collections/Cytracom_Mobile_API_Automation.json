@@ -1113,6 +1113,45 @@
 			"item": [
 				{
 					"name": "Individual Message Thread",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "aa62ce32-4289-402e-89c4-4709434db1a1",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "cdc96c37-926c-42d4-9b3e-f34a591daf8f",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
