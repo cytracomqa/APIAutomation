@@ -5,6 +5,8 @@ name: Newman CLI
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
+  schedule:
+    - cron: "0 14 * * *"
   push:
     branches: [ "main" ]
   pull_request:
@@ -44,6 +46,7 @@ jobs:
       - name: Run Collection
         run: |
           newman run "Postman Collections/Cytra_Login.json" -r htmlextra --reporter-htmlextra-export SampleArtifact/report.html
+          newman run "Postman Collections/Messaging.json" -r htmlextra --reporter-htmlextra-export SampleArtifact/report.html
 
       # Publish Report
       - name: Publish Report
