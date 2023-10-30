@@ -1599,6 +1599,62 @@
 				}
 			],
 			"id": "8a75e717-f687-4fb0-bc59-89824eb7d750"
+		},
+		{
+			"name": "Profile Pic",
+			"item": [
+				{
+					"name": "Delete Profile Pic",
+					"id": "006ae15f-5c01-4864-9eef-8e721607cfc1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.42 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/data/api/user-avatar?token={{token}}",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"data",
+								"api",
+								"user-avatar"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"id": "7f28fd19-00ec-40fd-8fe6-c03f0e7669f6"
 		}
 	]
 }
