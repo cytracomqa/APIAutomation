@@ -1726,6 +1726,53 @@
 				},
 				{
 					"name": "Post Profile Pic",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e6193b46-c664-411b-9e39-60c7436e7338",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"var picurl = encodeURIComponent(jsonData.avatar_url);",
+									"pm.environment.set(\"PicUrl\", picurl);",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"    pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "bbd98bfd-1067-4bd1-9a8a-be8dcfa20d24",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
