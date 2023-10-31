@@ -1802,12 +1802,18 @@
 								{
 									"key": "avatar",
 									"type": "file",
-									"src": "/Postman Collections/Screenshot 2023-10-27 at 2.48.09 PM.png"
+									"src": "Screenshot 2023-10-27 at 2.48.09 PM.png"
 								},
 								{
 									"key": "name",
 									"value": "avatar",
 									"type": "text"
+								},
+								{
+									"key": "",
+									"type": "file",
+									"value": null,
+									"disabled": true
 								}
 							]
 						},
@@ -1964,7 +1970,7 @@
 								{
 									"key": "avatar",
 									"type": "file",
-									"src": "/Postman Collections/Screen Shot 2021-06-17 at 10.29.03 PM.png"
+									"src": "Screen Shot 2021-06-17 at 10.29.03 PM.png"
 								},
 								{
 									"key": "name",
