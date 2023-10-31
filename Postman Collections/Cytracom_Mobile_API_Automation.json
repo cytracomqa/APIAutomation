@@ -1888,6 +1888,53 @@
 				},
 				{
 					"name": "Post Profile Pic Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "9f3835ff-a103-4501-8a04-729f682c59a3",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"var picurl = encodeURIComponent(jsonData.avatar_url);",
+									"pm.environment.set(\"PicUrl\", picurl);",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"    pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "1373e185-cb99-43be-a000-c2e60ab5c1f2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1977,7 +2024,7 @@
 								"value": "Cytracom%20Mobile/1 CFNetwork/1410.0.3 Darwin/22.6.0"
 							}
 						],
-						"url": "https://s3.amazonaws.com/com.production.profile-picture/EC11887A-2EC8-43A7-A499-3F1A89A40F04.png"
+						"url": "{{PicUrl}}"
 					},
 					"response": []
 				}
