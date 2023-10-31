@@ -1725,6 +1725,71 @@
 					"response": []
 				},
 				{
+					"name": "Post Profile Pic",
+					"id": "bbd98bfd-1067-4bd1-9a8a-be8dcfa20d24",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.42 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "files/Screenshot 2023-10-27 at 2.48.09 PM.png"
+								},
+								{
+									"key": "name",
+									"value": "avatar",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/data/api/user-avatar?token={{token}}",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"data",
+								"api",
+								"user-avatar"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Delete Profile Pic",
 					"id": "006ae15f-5c01-4864-9eef-8e721607cfc1",
 					"protocolProfileBehavior": {
@@ -1775,8 +1840,8 @@
 					"response": []
 				},
 				{
-					"name": "Post Profile Pic",
-					"id": "bbd98bfd-1067-4bd1-9a8a-be8dcfa20d24",
+					"name": "Post Profile Pic Copy",
+					"id": "1373e185-cb99-43be-a000-c2e60ab5c1f2",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -1806,7 +1871,7 @@
 								{
 									"key": "avatar",
 									"type": "file",
-									"src": "avatar.png"
+									"src": "files/Screen Shot 2021-06-17 at 10.29.03 PM.png"
 								},
 								{
 									"key": "name",
