@@ -1914,7 +1914,7 @@
 			"name": "Call Strategy",
 			"item": [
 				{
-					"name": "Put Call Strategy",
+					"name": "PUT Call Strategy Mobile",
 					"id": "2bbc2fd1-d1c6-4ea9-bf39-678f611c3d74",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1964,6 +1964,169 @@
 								{
 									"key": "token",
 									"value": "A/cbKBA4cnxj758nJYO20BZBy2xD%2BEXCD7gxLyrSR1g="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Call Strategy",
+					"id": "c61051a0-625f-48d9-9d09-bfda0ccae3ea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "\"-1077762815\""
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.42 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token={{token}}",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"mobile",
+								"extension-priority"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Call Strategy Simultaneous",
+					"id": "cced3d44-74c6-4307-a5f6-161ab2882ae0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.42 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"default_route\":\"simultaneous\"}"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token=A/cbKBA4cnxj758nJYO20BZBy2xD%2BEXCD7gxLyrSR1g=",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"mobile",
+								"extension-priority"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "A/cbKBA4cnxj758nJYO20BZBy2xD%2BEXCD7gxLyrSR1g="
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Call Strategy Copy",
+					"id": "6c496d33-ac30-4919-9382-2977a8229b21",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "If-None-Match",
+								"value": "\"-1077762815\""
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.42 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token={{token}}",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"mobile",
+								"extension-priority"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
 								}
 							]
 						}
