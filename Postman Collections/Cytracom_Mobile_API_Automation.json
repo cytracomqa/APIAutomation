@@ -1354,7 +1354,7 @@
 							"raw": "{\n    \"room_private\": true,\n    \"room_archived\": false,\n    \"room_desc\": \"Hey \\n\",\n    \"room_name\": \"Hggfg\"\n}"
 						},
 						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/messaging/rooms/4E8C2DA53E14C349DE22C9E7B9239F?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/rooms/4E8C2DA53E14C349DE22C9E7B9239F?token={{token}}",
 							"protocol": "https",
 							"host": [
 								"i662453",
@@ -1370,7 +1370,7 @@
 							"query": [
 								{
 									"key": "token",
-									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+									"value": "{{token}}"
 								}
 							]
 						}
@@ -1412,7 +1412,7 @@
 							"raw": "{\"to\":[\"dcarroll+test_C2@cytracom.com\"]}"
 						},
 						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads/init-thread?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads/init-thread?token={{token}}",
 							"protocol": "https",
 							"host": [
 								"i662453",
@@ -1428,7 +1428,7 @@
 							"query": [
 								{
 									"key": "token",
-									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+									"value": "{{token}}"
 								}
 							]
 						}
@@ -1470,7 +1470,7 @@
 							"raw": "{\"from\":\"+17602904509\",\"to\":[\"+919416837416\",\"+16478254162\"]}"
 						},
 						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads/init-thread?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads/init-thread?token={{token}}",
 							"protocol": "https",
 							"host": [
 								"i662453",
@@ -1486,7 +1486,7 @@
 							"query": [
 								{
 									"key": "token",
-									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+									"value": "{{token}}"
 								}
 							]
 						}
@@ -1528,7 +1528,7 @@
 							"raw": "{\"text\":\"Hello\",\"mentions\":[],\"is_internal_message\":true,\"thread_id\":\"8DF64240E27E4BB3F93E2CC586457E8AB183EC53\"}"
 						},
 						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/messaging/send-message?mobile_callback_id=66C90066-F08A-48F4-A534-9FD6537CADB9&token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/send-message?mobile_callback_id=66C90066-F08A-48F4-A534-9FD6537CADB9&token={{token}}",
 							"protocol": "https",
 							"host": [
 								"i662453",
@@ -1547,7 +1547,7 @@
 								},
 								{
 									"key": "token",
-									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+									"value": "{{token}}"
 								}
 							]
 						}
@@ -1581,7 +1581,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/messaging/messages/B182563CA2F4C788FEAC5B2A79AD21?token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/messages/B182563CA2F4C788FEAC5B2A79AD21?token={{token}}",
 							"protocol": "https",
 							"host": [
 								"i662453",
@@ -1597,7 +1597,7 @@
 							"query": [
 								{
 									"key": "token",
-									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+									"value": "{{token}}"
 								}
 							]
 						}
@@ -1631,7 +1631,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads?limit=100&token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads?limit=100&token={{token}}",
 							"protocol": "https",
 							"host": [
 								"i662453",
@@ -1650,7 +1650,7 @@
 								},
 								{
 									"key": "token",
-									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+									"value": "{{token}}"
 								}
 							]
 						}
@@ -1684,7 +1684,7 @@
 							}
 						],
 						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads?thread_type=sms_shared&from_number=%2B17602904509&limit=100&token=eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8=",
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads?thread_type=sms_shared&from_number=%2B17602904509&limit=100&token={{token}}",
 							"protocol": "https",
 							"host": [
 								"i662453",
@@ -1711,7 +1711,7 @@
 								},
 								{
 									"key": "token",
-									"value": "eOl8lmwk4wuX5oldP5poaFj6id6WEi40wSzze16vAb8="
+									"value": "{{token}}"
 								}
 							]
 						}
@@ -1734,8 +1734,8 @@
 								"exec": [
 									"var jsonData = pm.response.json();",
 									"",
-									"var picurl = encodeURIComponent(jsonData.avatar_url);",
-									"pm.environment.set(\"PicUrl\", picurl);",
+									"// var picurl = encodeURIComponent(jsonData.data.avatar_url);",
+									"pm.environment.set(\"PicUrl\", jsonData.data.avatar_url);",
 									"",
 									"",
 									"function test(testName, assertionFunc)",
@@ -2069,59 +2069,6 @@
 							"raw": "{\"default_route\":\"mobile\"}"
 						},
 						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token=A/cbKBA4cnxj758nJYO20BZBy2xD%2BEXCD7gxLyrSR1g=",
-							"protocol": "https",
-							"host": [
-								"i662453",
-								"cytracom",
-								"net"
-							],
-							"path": [
-								"v1.0",
-								"mobile",
-								"extension-priority"
-							],
-							"query": [
-								{
-									"key": "token",
-									"value": "A/cbKBA4cnxj758nJYO20BZBy2xD%2BEXCD7gxLyrSR1g="
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Get Call Strategy",
-					"id": "c61051a0-625f-48d9-9d09-bfda0ccae3ea",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Host",
-								"value": "i662453.cytracom.net"
-							},
-							{
-								"key": "If-None-Match",
-								"value": "\"-1077762815\""
-							},
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Cytracom Mobile/23.42 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-US;q=1.0"
-							}
-						],
-						"url": {
 							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token={{token}}",
 							"protocol": "https",
 							"host": [
@@ -2179,7 +2126,7 @@
 							"raw": "{\"default_route\":\"simultaneous\"}"
 						},
 						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token=A/cbKBA4cnxj758nJYO20BZBy2xD%2BEXCD7gxLyrSR1g=",
+							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token={{token}}",
 							"protocol": "https",
 							"host": [
 								"i662453",
@@ -2194,7 +2141,7 @@
 							"query": [
 								{
 									"key": "token",
-									"value": "A/cbKBA4cnxj758nJYO20BZBy2xD%2BEXCD7gxLyrSR1g="
+									"value": "{{token}}"
 								}
 							]
 						}
@@ -2202,8 +2149,8 @@
 					"response": []
 				},
 				{
-					"name": "Get Call Strategy Copy",
-					"id": "6c496d33-ac30-4919-9382-2977a8229b21",
+					"name": "Get Call Strategy",
+					"id": "c61051a0-625f-48d9-9d09-bfda0ccae3ea",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
