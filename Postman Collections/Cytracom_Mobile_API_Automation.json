@@ -1734,7 +1734,6 @@
 								"exec": [
 									"var jsonData = pm.response.json();",
 									"",
-									"// var picurl = encodeURIComponent(jsonData.data.avatar_url);",
 									"pm.environment.set(\"PicUrl\", jsonData.data.avatar_url);",
 									"",
 									"",
@@ -1803,7 +1802,7 @@
 								{
 									"key": "avatar",
 									"type": "file",
-									"src": "/Screenshot 2023-10-27 at 2.48.09 PM.png"
+									"src": "Screenshot 2023-10-27 at 2.48.09 PM.png"
 								},
 								{
 									"key": "name",
