@@ -1112,6 +1112,127 @@
 			"name": "Messaging",
 			"item": [
 				{
+					"name": "Auth Signin Copy",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "0a65c8fe-ffa7-42c5-9da1-a67b451b4f8d",
+								"exec": [
+									"pm.environment.set(\"url\", \"i662453.cytracom.net\");",
+									"pm.environment.set(\"host\", \"i662453.cytracom.net\");",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "ac5931c8-ef1f-4b04-a0cc-20b5535cbac0",
+								"exec": [
+									"//Testt",
+									"var jsonData = pm.response.json();",
+									"",
+									"var encoded = encodeURIComponent(jsonData.app_token);",
+									"pm.environment.set(\"token\", encoded);",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"    pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "6e5a49a5-afbd-4ee8-a298-8a1eeea8b98a",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"passwd\":\"Password1.\",\"login_id\":\"pdoshi+test@cytracom.com\"}\n\n//Test\n///////\n\n"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/data/plugin/auth/662453?with_sip_creds=true",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"data",
+								"plugin",
+								"auth",
+								"662453"
+							],
+							"query": [
+								{
+									"key": "with_sip_creds",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Individual Message Thread",
 					"event": [
 						{
