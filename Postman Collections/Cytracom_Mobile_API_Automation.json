@@ -18,6 +18,7 @@
 								"exec": [
 									"pm.environment.set(\"url\", \"i662453.cytracom.net\");",
 									"pm.environment.set(\"host\", \"i662453.cytracom.net\");",
+									"//test",
 									"",
 									""
 								],
@@ -30,6 +31,7 @@
 								"id": "ac5931c8-ef1f-4b04-a0cc-20b5535cbac0",
 								"exec": [
 									"//test",
+									"//testt",
 									"var jsonData = pm.response.json();",
 									"",
 									"var encoded = encodeURIComponent(jsonData.app_token);",
