@@ -1419,7 +1419,7 @@
 								"exec": [
 									"",
 									"var roomname = [\"name1\", \"name2\", \"name3\", \"name4\", \"name5\"]",
-									"var roomdes = [\"room1\", \"room2\", \"room3\", \"room4\", \"room5\"]",
+									"var roomdes = [\"desc\", \"desc2\", \"desc3\", \"desc4\", \"desc5\"]",
 									"",
 									"var randomName = roomname[Math.floor(Math.random()*roomname.length)]",
 									"var randomDes = roomdes[Math.floor(Math.random()*roomdes.length)]",
@@ -1636,6 +1636,67 @@
 					"response": []
 				},
 				{
+					"name": "Send Message",
+					"id": "fe68e1e7-ead9-41e4-8795-316056c2b849",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"text\": \"Hello\",\n    \"mentions\": [],\n    \"is_internal_message\": true,\n    \"thread_id\": \"{{threadID}}\"\n}"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/messaging/send-message?mobile_callback_id=66C90066-F08A-48F4-A534-9FD6537CADB9&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"send-message"
+							],
+							"query": [
+								{
+									"key": "mobile_callback_id",
+									"value": "66C90066-F08A-48F4-A534-9FD6537CADB9"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Create New SMS Conversation",
 					"id": "735ebf50-4313-4035-939d-a744c132aa7d",
 					"protocolProfileBehavior": {
@@ -1684,67 +1745,6 @@
 								"init-thread"
 							],
 							"query": [
-								{
-									"key": "token",
-									"value": "{{token}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Send Message",
-					"id": "fe68e1e7-ead9-41e4-8795-316056c2b849",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Host",
-								"value": "i662453.cytracom.net"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Cytracom Mobile/23.40 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-US;q=1.0"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"text\":\"Hello\",\"mentions\":[],\"is_internal_message\":true,\"thread_id\":\"8DF64240E27E4BB3F93E2CC586457E8AB183EC53\"}"
-						},
-						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/messaging/send-message?mobile_callback_id=66C90066-F08A-48F4-A534-9FD6537CADB9&token={{token}}",
-							"protocol": "https",
-							"host": [
-								"i662453",
-								"cytracom",
-								"net"
-							],
-							"path": [
-								"v1.0",
-								"messaging",
-								"send-message"
-							],
-							"query": [
-								{
-									"key": "mobile_callback_id",
-									"value": "66C90066-F08A-48F4-A534-9FD6537CADB9"
-								},
 								{
 									"key": "token",
 									"value": "{{token}}"
