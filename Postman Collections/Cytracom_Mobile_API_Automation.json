@@ -62,7 +62,7 @@
 									"pm.environment.set(\"extNumber\", jsonData.extension_number);  ",
 									"pm.environment.set(\"firstName\", jsonData.first_name);   ",
 									"pm.environment.set(\"lastName\", jsonData.last_name);   ",
-									"pm.environment.set(\"email\", jsonData.email);   ",
+									"pm.environment.set(\"email\", jsonData.login_id);   ",
 									"pm.environment.set(\"plan\", jsonData.plan);   ",
 									"pm.environment.set(\"companyName\", jsonData.company_name);  ",
 									"pm.environment.set(\"sipUsername\", jsonData.sip_username);  ",
@@ -1856,6 +1856,59 @@
 				},
 				{
 					"name": "PUT Call Strategy Simultaneous",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "da36b0e3-b39c-4ec1-b425-c9caaadc03cc",
+								"exec": [
+									"//Testt",
+									"var jsonData = pm.response.json();",
+									"",
+									"var encoded = encodeURIComponent(jsonData.app_token);",
+									"pm.environment.set(\"token\", encoded);",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"// pm.environment.set(\"extNumber\", jsonData.extension_number);  ",
+									" ",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "cced3d44-74c6-4307-a5f6-161ab2882ae0",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1913,6 +1966,59 @@
 				},
 				{
 					"name": "Get Call Strategy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46d01592-bb02-43bb-8225-04c1159d7060",
+								"exec": [
+									"//Testt",
+									"var jsonData = pm.response.json();",
+									"",
+									"var encoded = encodeURIComponent(jsonData.app_token);",
+									"pm.environment.set(\"token\", encoded);",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"// pm.environment.set(\"extNumber\", jsonData.extension_number);  ",
+									" ",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "c61051a0-625f-48d9-9d09-bfda0ccae3ea",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
