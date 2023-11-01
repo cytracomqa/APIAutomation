@@ -1327,7 +1327,6 @@
 								"exec": [
 									"var jsonData = pm.response.json();",
 									"",
-									"",
 									"function test(testName, assertionFunc)",
 									" {  ",
 									"var failed = true;",
@@ -1347,12 +1346,18 @@
 									"        pm.response.to.have.status(200);",
 									"    });",
 									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
 									"}  ",
 									"catch(failedtestName)",
 									"{",
 									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
 									"     postman.setNextRequest(null);",
-									"}"
+									"}",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -1423,6 +1428,52 @@
 									"",
 									"pm.environment.set(\"roomName\", randomName)",
 									"pm.environment.set(\"roomDescription\", randomDes)"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "08e93f52-483c-418e-bb54-8a234f695c40",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"var encoded = encodeURIComponent(jsonData.app_token);",
+									"pm.environment.set(\"token\", encoded);",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
 								],
 								"type": "text/javascript"
 							}
@@ -2179,7 +2230,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"passwd\":\"Password1.\",\"login_id\":\"pdoshi+test@cytracom.com\"}\n\n//Test\n///////\n\n"
+							"raw": ""
 						},
 						"url": {
 							"raw": "https://i662453.cytracom.net/v1.0/data/plugin/auth/662453?with_sip_creds=true",
