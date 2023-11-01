@@ -267,6 +267,16 @@
 									"        pm.response.to.have.status(200);",
 									"    });",
 									"",
+									"test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"pm.environment.set(\"firstName\", jsonData.first_name);   ",
+									"pm.environment.set(\"lastName\", jsonData.last_name);   ",
+									"pm.environment.set(\"email\", jsonData.email);   ",
+									"pm.environment.set(\"customerPlan\", jsonData.customer_plan);   ",
+									"pm.environment.set(\"companyName\", jsonData.customer_name);   ",
+									"",
 									"}  ",
 									"catch(failedtestName)",
 									"{",
@@ -396,7 +406,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"extension_number\":\"131\",\"company_did\":\"\",\"device_type\":\"apple-F049D084-CE04-496C-9B0F-69E77D721C96-Cytracom+Mobile\",\"device_token\":\"4c1ddd5fb516906cf7fcf8cb2be7f852af55c34f46a400a29eab5509df78952d\",\"sip_username\":\"sip131_dbtozqz\",\"email\":\"pdoshi+test@cytracom.com\",\"timestamp\":1695951850}"
+							"raw": "{\n    \"extension_number\": \"131\",\n    \"company_did\": \"\",\n    \"device_type\": \"apple-F049D084-CE04-496C-9B0F-69E77D721C96-Cytracom+Mobile\",\n    \"device_token\": \"4c1ddd5fb516906cf7fcf8cb2be7f852af55c34f46a400a29eab5509df78952d\",\n    \"sip_username\": \"sip131_dbtozqz\",\n    \"email\": \"{{email}}\",\n    \"timestamp\": 1695951850\n}"
 						},
 						"url": {
 							"raw": "https://i662453.cytracom.net/v1.0/mobile/register-user-device?token={{token}}",
