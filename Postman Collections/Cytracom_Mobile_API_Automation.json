@@ -1485,7 +1485,7 @@
 						"header": [
 							{
 								"key": "Host",
-								"value": "i662453.cytracom.net"
+								"value": "{{host}}"
 							},
 							{
 								"key": "Content-Type",
@@ -1566,6 +1566,7 @@
 									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
 									"    });",
 									"",
+									"pm.environment.set(\"threadID\", jsonData.thread.thread_id);  ",
 									"",
 									"}  ",
 									"catch(failedtestName)",
@@ -1588,7 +1589,7 @@
 						"header": [
 							{
 								"key": "Host",
-								"value": "i662453.cytracom.net"
+								"value": "{{host}}"
 							},
 							{
 								"key": "Content-Type",
@@ -1637,6 +1638,50 @@
 				},
 				{
 					"name": "Send Message",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0e226e00-21b5-41b9-aef8-fa1820db4c85",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 202\", function () {",
+									"        pm.response.to.have.status(202);",
+									"    });",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "fe68e1e7-ead9-41e4-8795-316056c2b849",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1646,7 +1691,7 @@
 						"header": [
 							{
 								"key": "Host",
-								"value": "i662453.cytracom.net"
+								"value": "{{host}}"
 							},
 							{
 								"key": "Content-Type",
@@ -1667,7 +1712,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"text\": \"Hello\",\n    \"mentions\": [],\n    \"is_internal_message\": true,\n    \"thread_id\": \"{{threadID}}\"\n}"
+							"raw": "{\n    \"text\": \"Hello1\",\n    \"mentions\": [],\n    \"is_internal_message\": true,\n    \"thread_id\": \"{{threadID}}\"\n}"
 						},
 						"url": {
 							"raw": "https://i662453.cytracom.net/v1.0/messaging/send-message?mobile_callback_id=66C90066-F08A-48F4-A534-9FD6537CADB9&token={{token}}",
@@ -1707,7 +1752,7 @@
 						"header": [
 							{
 								"key": "Host",
-								"value": "i662453.cytracom.net"
+								"value": "{{host}}"
 							},
 							{
 								"key": "Content-Type",
@@ -1728,7 +1773,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\"from\":\"+17602904509\",\"to\":[\"+919416837416\",\"+16478254162\"]}"
+							"raw": "{\n    \"from\": \"+17602904509\",\n    \"to\": [\n        \"+919416837416\",\n        \"+16478254162\"\n    ]\n}"
 						},
 						"url": {
 							"raw": "https://i662453.cytracom.net/v1.0/messaging/threads/init-thread?token={{token}}",
@@ -1756,6 +1801,50 @@
 				},
 				{
 					"name": "Get That Thread",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "41cc754d-5e4e-44d6-843d-3eb568bc8516",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "5cf7826b-3462-4b14-bdc6-f479897e30ba",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1765,7 +1854,7 @@
 						"header": [
 							{
 								"key": "Host",
-								"value": "i662453.cytracom.net"
+								"value": "{{host}}"
 							},
 							{
 								"key": "Accept-Language",
@@ -1806,6 +1895,50 @@
 				},
 				{
 					"name": "Get Direct Threads",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5faeb620-926a-46bd-8053-6b5252efdf22",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "daeaeb67-128f-4cb4-8f48-31adce0b3c06",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1815,7 +1948,7 @@
 						"header": [
 							{
 								"key": "Host",
-								"value": "i662453.cytracom.net"
+								"value": "{{host}}"
 							},
 							{
 								"key": "Accept-Language",
@@ -1859,6 +1992,50 @@
 				},
 				{
 					"name": "Get Shared Threads",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "5138ffc2-42a4-4730-832d-fd5a105cff82",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "82af4db9-1e22-471c-a4f4-24cf06917f29",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -2055,6 +2232,113 @@
 					"response": []
 				},
 				{
+					"name": "PUT Call Strategy Simultaneous",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "da36b0e3-b39c-4ec1-b425-c9caaadc03cc",
+								"exec": [
+									"//Testt",
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"",
+									"// pm.environment.set(\"extNumber\", jsonData.extension_number);  ",
+									" ",
+									"",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "cced3d44-74c6-4307-a5f6-161ab2882ae0",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Host",
+								"value": "i662453.cytracom.net"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.42 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"default_route\":\"simultaneous\"}"
+						},
+						"url": {
+							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token={{token}}",
+							"protocol": "https",
+							"host": [
+								"i662453",
+								"cytracom",
+								"net"
+							],
+							"path": [
+								"v1.0",
+								"mobile",
+								"extension-priority"
+							],
+							"query": [
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get Call Strategy",
 					"event": [
 						{
@@ -2144,113 +2428,6 @@
 								"value": "en-US;q=1.0"
 							}
 						],
-						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token={{token}}",
-							"protocol": "https",
-							"host": [
-								"i662453",
-								"cytracom",
-								"net"
-							],
-							"path": [
-								"v1.0",
-								"mobile",
-								"extension-priority"
-							],
-							"query": [
-								{
-									"key": "token",
-									"value": "{{token}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PUT Call Strategy Simultaneous",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "da36b0e3-b39c-4ec1-b425-c9caaadc03cc",
-								"exec": [
-									"//Testt",
-									"var jsonData = pm.response.json();",
-									"",
-									"",
-									"function test(testName, assertionFunc)",
-									" {  ",
-									"var failed = true;",
-									"pm.test(testName, function(){",
-									"assertionFunc();",
-									" failed = false;",
-									"  });",
-									"  ",
-									" if(failed){",
-									"  throw testName;",
-									"  }",
-									"}",
-									"",
-									"try{",
-									"",
-									"test(\"Status code is 200\", function () {",
-									"        pm.response.to.have.status(200);",
-									"    });",
-									"",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
-									"    });",
-									"",
-									"",
-									"// pm.environment.set(\"extNumber\", jsonData.extension_number);  ",
-									" ",
-									"",
-									"",
-									"}  ",
-									"catch(failedtestName)",
-									"{",
-									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
-									"     postman.setNextRequest(null);",
-									"}",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "cced3d44-74c6-4307-a5f6-161ab2882ae0",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Host",
-								"value": "i662453.cytracom.net"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Cytracom Mobile/23.42 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-US;q=1.0"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"default_route\":\"simultaneous\"}"
-						},
 						"url": {
 							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token={{token}}",
 							"protocol": "https",
