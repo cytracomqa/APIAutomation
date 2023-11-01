@@ -62,7 +62,7 @@
 									"    });",
 									"",
 									"",
-									"pm.environment.set(\"extNumber\", jsonData.extension_number); ",
+									"pm.environment.set(\"extNumber\", jsonData.extensionnumber); ",
 									"console.log(\"Extension Number:\" + pm.environment.get(\"extNumber\"));",
 									"",
 									"",
