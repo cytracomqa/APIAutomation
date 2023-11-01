@@ -1406,6 +1406,28 @@
 				},
 				{
 					"name": "Change Room Description/ Name",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4c5dce33-dbb7-4ff5-a4f5-6c52ad65cf2c",
+								"exec": [
+									"",
+									"var roomname = [\"name1\", \"name2\", \"name3\", \"name4\", \"name5\"]",
+									"var roomdes = [\"room1\", \"room2\", \"room3\", \"room4\", \"room5\"]",
+									"",
+									"var randomName = roomname[Math.floor(Math.random()*roomname.length)]",
+									"var randomDes = roomdes[Math.floor(Math.random()*roomdes.length)]",
+									"console.log(\"Random room name selected:\", randomName);",
+									"console.log(\"Random description selected:\", randomDes);",
+									"",
+									"pm.environment.set(\"roomName\", randomName)",
+									"pm.environment.set(\"roomDescription\", randomDes)"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "2e4cf92c-a2c5-407b-a1fd-2c517fdf30c5",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1436,7 +1458,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"room_private\": true,\n    \"room_archived\": false,\n    \"room_desc\": \"Hey \\n\",\n    \"room_name\": \"Hggfg\"\n}"
+							"raw": "{\n    \"room_private\": true,\n    \"room_archived\": false,\n    \"room_desc\": \"{{roomName}}\",\n    \"room_name\": \"{{roomDescription}}\"\n}"
 						},
 						"url": {
 							"raw": "https://i662453.cytracom.net/v1.0/messaging/rooms/4E8C2DA53E14C349DE22C9E7B9239F?token={{token}}",
