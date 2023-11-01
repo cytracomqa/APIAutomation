@@ -29,7 +29,7 @@
 							"script": {
 								"id": "ac5931c8-ef1f-4b04-a0cc-20b5535cbac0",
 								"exec": [
-									"//Testt",
+									"//test",
 									"var jsonData = pm.response.json();",
 									"",
 									"var encoded = encodeURIComponent(jsonData.app_token);",
@@ -1938,116 +1938,6 @@
 					"response": []
 				},
 				{
-					"name": "PUT Call Strategy Mobile",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "3ca9dd5b-2590-45a1-9700-65549edb72c9",
-								"exec": [
-									"//Testt",
-									"var jsonData = pm.response.json();",
-									"",
-									"var encoded = encodeURIComponent(jsonData.app_token);",
-									"pm.environment.set(\"token\", encoded);",
-									"",
-									"",
-									"function test(testName, assertionFunc)",
-									" {  ",
-									"var failed = true;",
-									"pm.test(testName, function(){",
-									"assertionFunc();",
-									" failed = false;",
-									"  });",
-									"  ",
-									" if(failed){",
-									"  throw testName;",
-									"  }",
-									"}",
-									"",
-									"try{",
-									"",
-									"test(\"Status code is 200\", function () {",
-									"        pm.response.to.have.status(200);",
-									"    });",
-									"",
-									"pm.test(\"Response time is less than 200ms\", function () {",
-									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
-									"    });",
-									"",
-									"",
-									"// pm.environment.set(\"extNumber\", jsonData.extension_number);  ",
-									" ",
-									"",
-									"",
-									"}  ",
-									"catch(failedtestName)",
-									"{",
-									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
-									"     postman.setNextRequest(null);",
-									"}",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "2bbc2fd1-d1c6-4ea9-bf39-678f611c3d74",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Host",
-								"value": "i662453.cytracom.net"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/json"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Cytracom Mobile/23.42 (com.cytracom.Cytracom-Mobile; build:1; iOS 16.6.0) Alamofire/5.6.4"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-US;q=1.0"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\"default_route\":\"mobile\"}"
-						},
-						"url": {
-							"raw": "https://i662453.cytracom.net/v1.0/mobile/extension-priority?token={{token}}",
-							"protocol": "https",
-							"host": [
-								"i662453",
-								"cytracom",
-								"net"
-							],
-							"path": [
-								"v1.0",
-								"mobile",
-								"extension-priority"
-							],
-							"query": [
-								{
-									"key": "token",
-									"value": "{{token}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "PUT Call Strategy Simultaneous",
 					"event": [
 						{
@@ -2165,7 +2055,6 @@
 							"script": {
 								"id": "46d01592-bb02-43bb-8225-04c1159d7060",
 								"exec": [
-									"//Testt",
 									"var jsonData = pm.response.json();",
 									"",
 									"var encoded = encodeURIComponent(jsonData.app_token);",
