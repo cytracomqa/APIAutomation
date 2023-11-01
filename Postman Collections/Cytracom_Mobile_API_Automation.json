@@ -479,6 +479,10 @@
 									"        pm.response.to.have.status(200);",
 									"    });",
 									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
 									"}  ",
 									"catch(failedtestName)",
 									"{",
@@ -540,6 +544,108 @@
 					"response": []
 				},
 				{
+					"name": "Messaging Threads Shared Messages",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7e75ee03-a0d4-406e-ae44-f1b4f9636fb0",
+								"exec": [
+									"var jsonData = pm.response.json();",
+									"",
+									"",
+									"function test(testName, assertionFunc)",
+									" {  ",
+									"var failed = true;",
+									"pm.test(testName, function(){",
+									"assertionFunc();",
+									" failed = false;",
+									"  });",
+									"  ",
+									" if(failed){",
+									"  throw testName;",
+									"  }",
+									"}",
+									"",
+									"try{",
+									"",
+									"test(\"Status code is 200\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
+									"",
+									"}  ",
+									"catch(failedtestName)",
+									"{",
+									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
+									"     postman.setNextRequest(null);",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"id": "5965d432-82df-4795-b0f9-09b0b73ab353",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "{{host}}"
+							},
+							{
+								"key": "Accept-Language",
+								"value": "en-US;q=1.0"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "User-Agent",
+								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
+							}
+						],
+						"url": {
+							"raw": "https://{{url}}/v1.0/messaging/threads?thread_type=sms_shared&from_number=%2B17602904509&limit=100&token={{token}}",
+							"protocol": "https",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1.0",
+								"messaging",
+								"threads"
+							],
+							"query": [
+								{
+									"key": "thread_type",
+									"value": "sms_shared"
+								},
+								{
+									"key": "from_number",
+									"value": "%2B17602904509"
+								},
+								{
+									"key": "limit",
+									"value": "100"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Call Detail Records",
 					"event": [
 						{
@@ -569,6 +675,9 @@
 									"        pm.response.to.have.status(200);",
 									"    });",
 									"",
+									"pm.test(\"Response time is less than 200ms\", function () {",
+									"        pm.expect(pm.response.responseTime).to.be.below(2000);",
+									"    });",
 									"}  ",
 									"catch(failedtestName)",
 									"{",
@@ -803,104 +912,6 @@
 								{
 									"key": "take",
 									"value": "500"
-								},
-								{
-									"key": "token",
-									"value": "{{token}}"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Messaging Threads Shared Messages",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"id": "7e75ee03-a0d4-406e-ae44-f1b4f9636fb0",
-								"exec": [
-									"var jsonData = pm.response.json();",
-									"",
-									"",
-									"function test(testName, assertionFunc)",
-									" {  ",
-									"var failed = true;",
-									"pm.test(testName, function(){",
-									"assertionFunc();",
-									" failed = false;",
-									"  });",
-									"  ",
-									" if(failed){",
-									"  throw testName;",
-									"  }",
-									"}",
-									"",
-									"try{",
-									"",
-									"test(\"Status code is 200\", function () {",
-									"        pm.response.to.have.status(200);",
-									"    });",
-									"",
-									"}  ",
-									"catch(failedtestName)",
-									"{",
-									" pm.test(\"Following Test Failed\", () => {throw new Error( \"Following assertion has failed\"+\".  Response payload follows: >>> \" + responseBody)}); ",
-									"     postman.setNextRequest(null);",
-									"}"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"id": "5965d432-82df-4795-b0f9-09b0b73ab353",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Host",
-								"value": "{{host}}"
-							},
-							{
-								"key": "Accept-Language",
-								"value": "en-US;q=1.0"
-							},
-							{
-								"key": "Accept",
-								"value": "*/*"
-							},
-							{
-								"key": "User-Agent",
-								"value": "Cytracom Mobile/23.25 (com.cytracom.Cytracom-Mobile; build:2; iOS 16.6.0) Alamofire/5.6.4"
-							}
-						],
-						"url": {
-							"raw": "https://{{url}}/v1.0/messaging/threads?thread_type=sms_shared&from_number=%2B17602904509&limit=100&token={{token}}",
-							"protocol": "https",
-							"host": [
-								"{{url}}"
-							],
-							"path": [
-								"v1.0",
-								"messaging",
-								"threads"
-							],
-							"query": [
-								{
-									"key": "thread_type",
-									"value": "sms_shared"
-								},
-								{
-									"key": "from_number",
-									"value": "%2B17602904509"
-								},
-								{
-									"key": "limit",
-									"value": "100"
 								},
 								{
 									"key": "token",
